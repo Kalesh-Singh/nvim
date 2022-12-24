@@ -16,4 +16,11 @@ return require('packer').startup(function(use)
 
   -- Nordfox Colorscheme
   use 'EdenEast/nightfox.nvim'
+
+  -- Tree Sitter for Syntax Highlighting
+  use {
+	'nvim-treesitter/nvim-treesitter',
+	{ run = ':TSUpdate' }
+  }
+
 end)
