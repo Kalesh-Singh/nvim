@@ -4,23 +4,23 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+	-- Packer can manage itself
+	use 'wbthomason/packer.nvim'
 
-  -- Telescope Generic Fuzzy Finding
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+	-- Telescope Generic Fuzzy Finding
+	use {
+		'nvim-telescope/telescope.nvim', tag = '0.1.0',
+		-- or                            , branch = '0.1.x',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
 
-  -- Nordfox Colorscheme
-  use 'EdenEast/nightfox.nvim'
+	-- Nordfox Colorscheme
+	use 'EdenEast/nightfox.nvim'
 
-  -- Tree Sitter for Syntax Highlighting
-  use {
-	'nvim-treesitter/nvim-treesitter',
-	{ run = ':TSUpdate' }
-  }
+	-- Tree Sitter for Syntax Highlighting
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		{ run = ':TSUpdate' }
+	}
 
 end)
