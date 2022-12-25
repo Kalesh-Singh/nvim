@@ -69,11 +69,17 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 	keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	-- CCLS Call Hierarchy
-	-- CclsCallHierarchy: Get a hierarchy of functions calling the function under the cursor.
-	keymap(bufnr, "n", "g-", "<cmd>CclsCallHierarchy<CR>", opts)
-	-- CclsCalleeHierarchy: Get a hierarchy of functions called by the function under the cursor
-	keymap(bufnr, "n", "g=", "<cmd>CclsCalleeHierarchy<CR>", opts)
+end
+
+local function ccls_lsp_keymaps(bufnr)
+	local opts = { noremap = true, silent = true }
+	local keymap = vim.api.nvim_buf_set_keymap
+
+	-- Also setup the generic keymaps
+	lsp_keymaps(bufnr)
+
+	keymap(bufnr, 'n', 'g-', '<cmd>CclsIncomingCallsHierarchy<cr>', opts)
+	keymap(bufnr, 'n', 'g=', '<cmd>CclsOutgoingCallsHierarchy<cr>', opts)
 end
 
 M.on_attach = function(client, bufnr)
@@ -85,7 +91,11 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.documentFormattingProvider = false
 	end
 
-	lsp_keymaps(bufnr)
+	if client.name == 'ccls' then
+		ccls_lsp_keymaps(bufnr)
+	else
+		lsp_keymaps(bufnr)
+	end
 	-- Highlights other users of the word under cursor
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then

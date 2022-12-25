@@ -53,4 +53,7 @@ return require('packer').startup(function(use)
 
 	-- Add illuminate word under cursor
 	use 'RRethy/vim-illuminate'
+
+	-- Extended CCLS functionality
+	use 'ranjithshegde/ccls.nvim'
 end)
