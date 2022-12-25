@@ -31,4 +31,15 @@ return require('packer').startup(function(use)
 		},
 	}
 
+	-- Add auto completion engines
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
+	use 'hrsh7th/nvim-cmp'
+	-- Also add a snippet engine and auto complete from snippets
+	use 'L3MON4D3/LuaSnip'
+	use 'saadparwaiz1/cmp_luasnip'
+	-- Add also a community contributed repo of snippets
+	use 'rafamadriz/friendly-snippets'
 end)
