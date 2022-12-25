@@ -42,4 +42,15 @@ return require('packer').startup(function(use)
 	use 'saadparwaiz1/cmp_luasnip'
 	-- Add also a community contributed repo of snippets
 	use 'rafamadriz/friendly-snippets'
+
+	-- Add LSP configuration and Lang Server Installer
+	use 'neovim/nvim-lspconfig'
+	use 'williamboman/mason.nvim'
+	use 'williamboman/mason-lspconfig.nvim'
+
+	-- Add null ls for code actions
+	use 'jose-elias-alvarez/null-ls.nvim'
+
+	-- Add illuminate word under cursor
+	use 'RRethy/vim-illuminate'
 end)
