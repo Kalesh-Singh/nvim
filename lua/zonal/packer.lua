@@ -56,4 +56,13 @@ return require('packer').startup(function(use)
 
 	-- Extended CCLS functionality
 	use 'ranjithshegde/ccls.nvim'
+
+    -- Add LSP Progress Bar
+    use 'j-hui/fidget.nvim'
+
+    -- Use treesitter textobjects
+    use {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        after = 'nvim-treesitter',
+    }
 end)
