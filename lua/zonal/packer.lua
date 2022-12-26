@@ -80,4 +80,7 @@ return require('packer').startup(function(use)
 
     -- Guess indentation automatically
     use 'NMAC427/guess-indent.nvim'
+
+	-- Detect trailing whitespaces
+	use 'johnfrankmorgan/whitespace.nvim'
 end)
