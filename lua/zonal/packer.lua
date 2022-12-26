@@ -86,4 +86,6 @@ return require('packer').startup(function(use)
 
 	-- Add Git support
 	use 'lewis6991/gitsigns.nvim'
+	use 'rhysd/git-messenger.vim'
+
 end)
