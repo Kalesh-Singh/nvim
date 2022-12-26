@@ -68,4 +68,10 @@ return require('packer').startup(function(use)
 
     -- Indent blankline
     use 'lukas-reineke/indent-blankline.nvim'
+
+    -- Add colorizer for RBG and HEX highlights
+    use 'norcalli/nvim-colorizer.lua'
+
+    -- Add lualine status line setup
+    use 'nvim-lualine/lualine.nvim'
 end)
