@@ -74,4 +74,7 @@ return require('packer').startup(function(use)
 
     -- Add lualine status line setup
     use 'nvim-lualine/lualine.nvim'
+
+    -- Add comment support from treesitter
+    use 'numToStr/Comment.nvim'
 end)
