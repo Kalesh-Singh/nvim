@@ -55,7 +55,7 @@ end
 -- for LSP related items. It sets the mode, buffer and description for us each time.
 local nmap = function(bufnr, keys, func, desc)
 	if desc then
-		desc = 'LSP: ' .. desc
+		desc = desc
 	end
 
 	vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
