@@ -51,35 +51,63 @@ M.setup = function()
 	})
 end
 
+-- In this case, we create a function that lets us more easily define mappings specific
+-- for LSP related items. It sets the mode, buffer and description for us each time.
+local nmap = function(bufnr, keys, func, desc)
+	if desc then
+		desc = 'LSP: ' .. desc
+	end
+
+	vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+end
+
 local function lsp_keymaps(bufnr)
-	local opts = { noremap = true, silent = true }
-	local keymap = vim.api.nvim_buf_set_keymap
-	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
-	keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-	keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
-	keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-	keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
-	keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
-	keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-	keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+	nmap(bufnr, 'gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+	nmap(bufnr, 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+	nmap(bufnr, 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+	nmap(bufnr, 'gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+	nmap(bufnr, '<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+	nmap(bufnr, '<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+	nmap(bufnr, '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+
+	-- See `:help K` for why this keymap
+	nmap(bufnr, 'K', vim.lsp.buf.hover, 'Hover Documentation')
+	nmap(bufnr, '<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+
+	-- Formatting
+	nmap(bufnr, '<leader>lf', vim.lsp.buf.format, '[L]SP [F]ormat')
+
+	-- Refactor
+	nmap(bufnr, '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+
+	-- Code Action
+	nmap(bufnr, '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+
+	-- Diagnostics
+	-- nmap('<leader>dn', vim.diagnostic.goto_next({buffer=0}), '[D]iagnostic [N]ext')
+	-- nmap('<leader>dp', vim.diagnostic.goto_prev({buffer=0}), '[D]iagnostic [P]rev')
+	nmap(bufnr, '<leader>dl', vim.diagnostic.setloclist, '[D]iagnostic [L]oclist')
+	nmap(bufnr, 'gl', vim.diagnostic.open_float, 'Diagnostic Info')
+
+	-- Signature help
+	nmap(bufnr, '<leader>ls', vim.lsp.buf.signature_help, '[L]SP [S]ignature')
+
+	-- Lesser used LSP functionality (Workspaces)
+	nmap(bufnr, 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+	nmap(bufnr, '<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
+	nmap(bufnr, '<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+	nmap(bufnr, '<leader>wl', function()
+		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	end, '[W]orkspace [L]ist Folders')
 end
 
 local function ccls_lsp_keymaps(bufnr)
-	local opts = { noremap = true, silent = true }
-	local keymap = vim.api.nvim_buf_set_keymap
-
 	-- Also setup the generic keymaps
 	lsp_keymaps(bufnr)
 
-	keymap(bufnr, 'n', 'g-', '<cmd>CclsIncomingCallsHierarchy<cr>', opts)
-	keymap(bufnr, 'n', 'g=', '<cmd>CclsOutgoingCallsHierarchy<cr>', opts)
+	-- CCLS Extensions
+	nmap(bufnr, 'g-', ':CclsIncomingCallsHierarchy<cr>', 'Hierarchy of funcs calling this')
+	nmap(bufnr, 'g=', ':CclsOutgoingCallsHierarchy<cr>', 'Hierarchy of funcs called by this')
 end
 
 M.on_attach = function(client, bufnr)
