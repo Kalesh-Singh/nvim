@@ -77,4 +77,7 @@ return require('packer').startup(function(use)
 
     -- Add comment support from treesitter
     use 'numToStr/Comment.nvim'
+
+    -- Guess indentation automatically
+    use 'NMAC427/guess-indent.nvim'
 end)
