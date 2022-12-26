@@ -84,8 +84,25 @@ local function lsp_keymaps(bufnr)
 	nmap(bufnr, '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
 	-- Diagnostics
-	-- nmap('<leader>dn', vim.diagnostic.goto_next({buffer=0}), '[D]iagnostic [N]ext')
-	-- nmap('<leader>dp', vim.diagnostic.goto_prev({buffer=0}), '[D]iagnostic [P]rev')
+	-- nmap('<leader>dn', vim.diagnostic.goto_next, '[D]iagnostic [N]ext')
+	-- nmap('<leader>dp', vim.diagnostic.goto_prev, '[D]iagnostic [P]rev')
+	--
+	vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev,
+		{
+			noremap=true,
+			silent=true,
+			buffer = bufnr,
+			desc = '[D]iagnostics [P]rev',
+		})
+	vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next,
+		{
+			noremap=true,
+			silent=true,
+			buffer = bufnr,
+			desc = '[D]iagnostics [N]ext',
+		})
+
+
 	nmap(bufnr, '<leader>dl', vim.diagnostic.setloclist, '[D]iagnostic [L]oclist')
 	nmap(bufnr, 'gl', vim.diagnostic.open_float, 'Diagnostic Info')
 
