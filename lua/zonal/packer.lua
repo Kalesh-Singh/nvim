@@ -83,4 +83,7 @@ return require('packer').startup(function(use)
 
 	-- Detect trailing whitespaces
 	use 'johnfrankmorgan/whitespace.nvim'
+
+	-- Add Git support
+	use 'lewis6991/gitsigns.nvim'
 end)
