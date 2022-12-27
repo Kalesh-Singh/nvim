@@ -3,25 +3,9 @@ vim.opt.termguicolors = true
 require("bufferline").setup {
   -- The default highlights don't work well with night fox
   highlights = {
-    separator = {
-      fg = '#073642',
-      bg = '#002b36',
-    },
-    separator_selected = {
-      fg = '#073642',
-    },
-    background = {
-      fg = '#657b83',
-      bg = '#002b36',
-    },
     buffer_selected = {
-      fg = '#051418',
-      bg = '#002b36',
-      underline = true,
+      fg = '#BE94F9', -- at least matches dracula lualine
     },
-    fill = {
-      bg = '#073642'
-    }
   },
 }
 
