@@ -90,4 +90,11 @@ return require('packer').startup(function(use)
 
 	-- Project management (replacement for vim rooter)
 	use 'ahmedkhalf/project.nvim'
+
+	-- Buffer management
+	use {
+		'akinsho/bufferline.nvim',
+		tag = "v3.*",
+		requires = 'nvim-tree/nvim-web-devicons'
+	}
 end)
