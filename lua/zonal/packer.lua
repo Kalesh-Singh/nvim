@@ -88,4 +88,6 @@ return require('packer').startup(function(use)
 	use 'lewis6991/gitsigns.nvim'
 	use 'rhysd/git-messenger.vim'
 
+	-- Project management (replacement for vim rooter)
+	use 'ahmedkhalf/project.nvim'
 end)
