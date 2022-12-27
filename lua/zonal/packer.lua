@@ -97,4 +97,10 @@ return require('packer').startup(function(use)
 		tag = "v3.*",
 		requires = 'nvim-tree/nvim-web-devicons'
 	}
+
+	-- Todo, Bug, Fixes Mangement
+	use {
+		'folke/todo-comments.nvim',
+		requires = 'nvim-lua/plenary.nvim',
+	}
 end)
