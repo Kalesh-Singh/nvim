@@ -7,6 +7,9 @@ require("bufferline").setup {
       fg = '#BE94F9', -- matches dracula lualine
     },
   },
+  options = {
+    separator_style = 'padded_slant',
+  },
 }
 
 -- Setup navigation key mappings
