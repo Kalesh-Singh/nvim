@@ -20,7 +20,7 @@ return require('packer').startup(function(use)
 	-- Tree Sitter for Syntax Highlighting
 	use {
 		'nvim-treesitter/nvim-treesitter',
-		{ run = ':TSUpdate' }
+		{ run = ':TSUpdate' },
 	}
 
 	-- Nvim Tree File Explorer
@@ -103,4 +103,7 @@ return require('packer').startup(function(use)
 		'folke/todo-comments.nvim',
 		requires = 'nvim-lua/plenary.nvim',
 	}
+
+	-- Tmux navigation integration
+	use 'christoomey/vim-tmux-navigator'
 end)
