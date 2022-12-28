@@ -72,7 +72,6 @@ local function lsp_keymaps(bufnr)
 
 	-- See `:help K` for why this keymap
 	nmap(bufnr, 'K', vim.lsp.buf.hover, 'Hover Documentation')
-	nmap(bufnr, '<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
 	-- Formatting
 	nmap(bufnr, '<leader>lf', vim.lsp.buf.format, '[L]SP [F]ormat')
@@ -107,7 +106,7 @@ local function lsp_keymaps(bufnr)
 	nmap(bufnr, 'gl', vim.diagnostic.open_float, 'Diagnostic Info')
 
 	-- Signature help
-	nmap(bufnr, '<leader>ls', vim.lsp.buf.signature_help, '[L]SP [S]ignature')
+	nmap(bufnr, '<leader>ls', vim.lsp.buf.signature_help, 'Signature Documentation')
 
 	-- Lesser used LSP functionality (Workspaces)
 	nmap(bufnr, 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
