@@ -1,10 +1,10 @@
 vim.opt.termguicolors = true
 
 require("bufferline").setup {
-  -- The default highlights don't work well with night fox
+  -- If the highlights don't work, check the tmux term is *256color
   highlights = {
     buffer_selected = {
-      fg = '#BE94F9', -- at least matches dracula lualine
+      fg = '#BE94F9', -- matches dracula lualine
     },
   },
 }
