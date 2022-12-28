@@ -10,6 +10,6 @@ require("nvim-tree").setup()
 
 -- Key Mappings
 -- Open or close the tree
-vim.keymap.set('n', '<leader>tt', vim.cmd.NvimTreeToggle)
+vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeToggle)
 -- Move the cursor in the tree for the current buffer, opening folders if needed
-vim.keymap.set('n', '<leader>tf', vim.cmd.NvimTreeFindFile)
+vim.keymap.set('n', '<leader>fe', vim.cmd.NvimTreeFindFile)
