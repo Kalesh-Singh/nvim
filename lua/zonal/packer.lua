@@ -55,7 +55,11 @@ return require('packer').startup(function(use)
 	use 'RRethy/vim-illuminate'
 
 	-- Extended CCLS functionality
-	use 'ranjithshegde/ccls.nvim'
+	-- use 'ranjithshegde/ccls.nvim'
+	-- TODO: The lua CCLS plugin above is significantly slower than
+	-- the vim script coutner part below. Maybe this will change in
+	-- the future. For now stick with what works.
+	use 'm-pilia/vim-ccls'
 
     -- Add LSP Progress Bar
     use 'j-hui/fidget.nvim'

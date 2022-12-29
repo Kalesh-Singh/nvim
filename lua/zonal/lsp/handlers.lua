@@ -122,8 +122,11 @@ local function ccls_lsp_keymaps(bufnr)
 	lsp_keymaps(bufnr)
 
 	-- CCLS Extensions
-	nmap(bufnr, 'g-', ':CclsIncomingCallsHierarchy<cr>', 'Hierarchy of funcs calling this')
-	nmap(bufnr, 'g=', ':CclsOutgoingCallsHierarchy<cr>', 'Hierarchy of funcs called by this')
+	-- TODO: If this becomes better than m-pilia's plugin
+	-- nmap(bufnr, 'g-', ':CclsIncomingCallsHierarchy<cr>', 'Hierarchy of funcs calling this')
+	-- nmap(bufnr, 'g=', ':CclsOutgoingCallsHierarchy<cr>', 'Hierarchy of funcs called by this')
+	nmap(bufnr, 'g-', ':CclsCallHierarchy<cr>', 'Hierarchy of funcs calling this')
+	nmap(bufnr, 'g=', ':CclsCalleeHierahy<cr>', 'Hierarchy of funcs called by this')
 end
 
 M.on_attach = function(client, bufnr)
