@@ -126,7 +126,7 @@ local function ccls_lsp_keymaps(bufnr)
 	-- nmap(bufnr, 'g-', ':CclsIncomingCallsHierarchy<cr>', 'Hierarchy of funcs calling this')
 	-- nmap(bufnr, 'g=', ':CclsOutgoingCallsHierarchy<cr>', 'Hierarchy of funcs called by this')
 	nmap(bufnr, 'g-', ':CclsCallHierarchy<cr>', 'Hierarchy of funcs calling this')
-	nmap(bufnr, 'g=', ':CclsCalleeHierahy<cr>', 'Hierarchy of funcs called by this')
+	nmap(bufnr, 'g=', ':CclsCalleeHierarchy<cr>', 'Hierarchy of funcs called by this')
 end
 
 M.on_attach = function(client, bufnr)
