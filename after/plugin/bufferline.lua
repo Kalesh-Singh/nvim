@@ -23,3 +23,6 @@ end
 
 nmap('<S-h>', ':BufferLineCyclePrev<cr>', 'Move to Prev Buffer')
 nmap('<S-l>', ':BufferLineCycleNext<cr>', 'Move to Next Buffer')
+-- This is native vim but seems appropriate to group with
+-- this plugins mappings.
+nmap('<leader>q', ':bd<cr>', 'Close Current Buffer')
