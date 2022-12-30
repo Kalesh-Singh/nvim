@@ -3,6 +3,8 @@ local servers = {
 	"pyright",
 	"bashls",
 	"jsonls",
+	"marksman",	-- Markdown
+	"texlab",	-- Latex
 }
 
 local settings = {
