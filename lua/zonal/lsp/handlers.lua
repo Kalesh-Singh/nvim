@@ -79,10 +79,10 @@ local function lsp_keymaps(bufnr)
 	nmap(bufnr, '<leader>lf', vim.lsp.buf.format, '[L]SP [F]ormat')
 
 	-- Refactor
-	nmap(bufnr, '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+	nmap(bufnr, 'rn', vim.lsp.buf.rename, '[R]e[n]ame')
 
 	-- Code Action
-	nmap(bufnr, '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+	nmap(bufnr, 'ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
 	-- Diagnostics
 	-- nmap('<leader>dn', vim.diagnostic.goto_next, '[D]iagnostic [N]ext')
