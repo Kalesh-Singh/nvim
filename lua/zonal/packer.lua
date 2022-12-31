@@ -61,6 +61,9 @@ return require('packer').startup(function(use)
 	-- the future. For now stick with what works.
 	use 'm-pilia/vim-ccls'
 
+	-- CCLS Grey out inactive regions
+	use 'jackguo380/vim-lsp-cxx-highlight'
+
     -- Add LSP Progress Bar
     use 'j-hui/fidget.nvim'
 
