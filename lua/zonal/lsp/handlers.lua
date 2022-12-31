@@ -66,9 +66,11 @@ local function lsp_keymaps(bufnr)
 	nmap(bufnr, 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 	nmap(bufnr, 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 	nmap(bufnr, 'gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-	nmap(bufnr, '<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-	nmap(bufnr, '<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-	nmap(bufnr, '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+	nmap(bufnr, 'gt', vim.lsp.buf.type_definition, 'Type [D]efinition')
+	-- C-s is my tmux prefix so we need something else here
+	nmap(bufnr, '<C-f>', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[F]ind / Search Workspace [S]ymbols')
+	-- Searching the document is less common, keep leader mapping
+	nmap(bufnr, '<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Search [D]ocument [S]ymbols')
 
 	-- See `:help K` for why this keymap
 	nmap(bufnr, 'K', vim.lsp.buf.hover, 'Hover Documentation')
