@@ -114,4 +114,7 @@ return require('packer').startup(function(use)
 
 	-- Tmux navigation integration
 	use 'christoomey/vim-tmux-navigator'
+
+	-- Draw diagrams in vim
+	use 'jbyuki/venn.nvim'
 end)

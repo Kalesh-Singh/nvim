@@ -13,7 +13,7 @@ vim.keymap.set('n', '<C-e>', builtin.diagnostics, { desc = 'Search [E]rrors / Di
 
 -- Search Linux Kernel Documentation
 -- <C-l> is for pane navigation, use <C-m> similar to man
-vim.keymap.set('n', '<C-m>',
+vim.keymap.set('n', '<C-?>',
   ":Telescope live_grep search_dirs={'Documentation/'} prompt_title=\\ Linux\\ Kernel\\ Documentation\\ <cr>",
   { desc = 'Search [L]inux Documentation / [M]anual' })
 
