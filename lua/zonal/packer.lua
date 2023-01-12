@@ -123,4 +123,11 @@ return require('packer').startup(function(use)
 		'p00f/nvim-ts-rainbow',
 		requires = 'nvim-treesitter/nvim-treesitter',
 	}
+
+	-- Git linker (for quickly documenting understanding of source code)
+	-- Generates Github links (Will work with linux kernel)
+	use {
+		'ruifm/gitlinker.nvim',
+		requires = 'nvim-lua/plenary.nvim',
+	}
 end)
