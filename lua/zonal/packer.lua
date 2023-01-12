@@ -94,6 +94,7 @@ return require('packer').startup(function(use)
 	-- Add Git support
 	use 'lewis6991/gitsigns.nvim'
 	use 'rhysd/git-messenger.vim'
+	use 'tpope/vim-fugitive'
 
 	-- Project management (replacement for vim rooter)
 	use 'ahmedkhalf/project.nvim'
